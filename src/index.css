@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* CRT Retro animations */
+@keyframes crt-flicker {
+  0% { opacity: 0.985; }
+  50% { opacity: 1; }
+  100% { opacity: 0.992; }
+}
+
+@keyframes scanline-scroll {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.crt-frame {
+  position: relative;
+  overflow: hidden;
+  animation: crt-flicker 0.18s infinite;
+}
+
+/* Retro Scanline Matrix Grid Overlay */
+.crt-scanlines::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.42) 50%), 
+              linear-gradient(90deg, rgba(239, 68, 68, 0.05), rgba(34, 197, 94, 0.02), rgba(59, 130, 246, 0.05));
+  background-size: 100% 4px, 6px 100%;
+  z-index: 45;
+  pointer-events: none;
+  opacity: 0.82;
+}
+
+/* Moving beam rolling bar */
+.crt-roll::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 8%, rgba(255, 255, 255, 0) 22%);
+  z-index: 46;
+  pointer-events: none;
+  animation: scanline-scroll 8s linear infinite;
+}
+
+/* CRT Glass vignette shadowing */
+.crt-vignette {
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+  z-index: 47;
+}
+
+/* Glass surface shiny reflections */
+.crt-glare {
+  background: radial-gradient(circle at 50% 12%, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0) 55%);
+  pointer-events: none;
+  z-index: 48;
+}
+
+/* Better iOS / Mobile support for Backdrop Blurs and Safe fallback properties */
+.backdrop-blur-xs {
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+
+.backdrop-blur-sm {
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.backdrop-blur-md {
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.backdrop-blur-lg {
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+}
+
+.backdrop-blur {
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+

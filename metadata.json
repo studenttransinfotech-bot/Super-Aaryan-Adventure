@@ -1,0 +1,6 @@
+{
+  "name": "Super Aaryan Adventure",
+  "description": "The ultimate action-packed sci-fi robot platformer featuring three game modes (Story, Racing, Adventure), secret pipe zones, and 50 levels of cybernetic challenges.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,8 @@
+{
+	"appId": "com.superaaryanadventure.game",
+	"appName": "Super Aaryan Adventure",
+	"webDir": "dist",
+	"server": {
+		"androidScheme": "https"
+	}
+}
